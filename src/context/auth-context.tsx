@@ -1,3 +1,4 @@
+"use client"
 // In src/context/auth-context.tsx
 import {
   createContext,
