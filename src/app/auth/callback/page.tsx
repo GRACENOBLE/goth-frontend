@@ -2,25 +2,25 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/auth-context";
+import { useSearchParams, useRouter } from "next/navigation";
 
 export default function AuthCallback() {
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const { refetchUser } = useAuth();
 
   useEffect(() => {
-    async function handleCallback() {
-      // After Google redirects back to your backend, and your backend redirects here,
-      // the cookies should already be set, so we just need to fetch the user data
-      await refetchUser();
+    const token = searchParams.get("token");
+    if (token) {
+      // Save the token to localStorage
+      localStorage.setItem("auth_token", token);
 
       // Redirect to dashboard or home
       router.push("/dashboard");
+    } else {
+      // Handle error
+      router.push("/auth/error");
     }
-
-    handleCallback();
-  }, [router, refetchUser]);
+  }, [searchParams, router]);
 
   return <div>Completing authentication...</div>;
 }
