@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const fetchUser = async () => {
     try {
       const res = await fetch(
-        "https://goth-gracenoble4212-jla4fh1c.leapcell.dev/api/me",
+        "https://goth-theraddude7343-kctznmwp.leapcell.dev/api/me",
         {
           credentials: "include", // Critical for sending cookies
         }
@@ -65,7 +65,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = async () => {
     try {
       await fetch(
-        "https://goth-gracenoble4212-jla4fh1c.leapcell.dev/auth/logout",
+        "https://goth-theraddude7343-kctznmwp.leapcell.dev/auth/logout",
         {
           credentials: "include",
         }

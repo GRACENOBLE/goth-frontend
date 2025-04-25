@@ -38,7 +38,7 @@ const Header = () => {
           ) : (
             <Link
               className={cn(buttonVariants({ variant: "default" }))}
-              href="https://goth-gracenoble4212-jla4fh1c.leapcell.dev/auth/google"
+              href="https://goth-theraddude7343-kctznmwp.leapcell.dev/auth/google"
             >
               Login with Google
             </Link>
